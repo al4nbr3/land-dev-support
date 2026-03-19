@@ -19,6 +19,10 @@
   - Session log saved to `session_log.json`
   - Session summary report
 - [x] `.env.example` created
+- [x] `.env` created and populated with a valid `OPENAI_API_KEY` (copied from another project)
+- [x] `app.py` created (Gradio web UI portal)
+- [x] `scripts/ufw-allow-gradio.sh` created (opens the Gradio port via UFW)
+- [x] Fix OpenAI SDK usage (migrated from `ChatCompletion` to `openai.chat.completions.create` for openai>=1.0)
 - [x] `.gitignore` created
 - [x] `requirements.txt` created
 - [x] `README.md` created
@@ -27,7 +31,6 @@
 ### 🔲 Pending / Next Steps
 - [ ] Replace `faq.md` with real department FAQ when available
 - [ ] Add Ollama/Llama 3.2 as fallback model (Week 1 pattern)
-- [ ] Add Gradio web UI (after Week 2)
 - [ ] Add multi-turn conversation memory (after Week 3)
 - [ ] Connect to real permit database (future)
 - [ ] Deploy to remote server

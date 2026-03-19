@@ -33,7 +33,21 @@ cp .env.example .env
 nano .env   # add your OPENAI_API_KEY
 ```
 
-**4. Launch the notebook**
+**4. Open firewall port (if using UFW)**
+If you're running on a server and want to access the web UI from another machine, make sure the port is allowed through UFW.
+
+```bash
+# Default port is 7860
+scripts/ufw-allow-gradio.sh
+```
+
+If you set a custom port, pass it as an argument:
+
+```bash
+scripts/ufw-allow-gradio.sh 9000
+```
+
+**5. Launch the notebook**
 ```bash
 jupyter notebook land_dev_support.ipynb
 ```

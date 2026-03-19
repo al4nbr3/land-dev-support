@@ -12,8 +12,9 @@ residential permits, and plot/land verification before permanent construction.
 - Collect satisfaction feedback after each answer
 - Save full session log to session_log.json for review
 
-## Main File
+## Main Files
 - `land_dev_support.ipynb` — the main notebook (run all cells top to bottom)
+- `app.py` — Gradio web portal (question UI + session logging)
 
 ## Commands
 ```bash
@@ -24,17 +25,28 @@ pip install -r requirements.txt
 cp .env.example .env
 # Then add your OPENAI_API_KEY to .env
 
-# Launch notebook
+# Launch notebook (optional)
 jupyter notebook land_dev_support.ipynb
+
+# Launch web portal (recommended)
+source .venv/bin/activate
+python app.py
+
+# If you are accessing from another machine, use SSH port forwarding:
+# (run this on your local machine, not on the server)
+ssh -L 7860:localhost:7860 <user>@<host>
+# Then open:
+# http://localhost:7860
 ```
 
 ## Scripts
-- `scripts/` — reserved for future privileged operations (backups, deploys)
+- `scripts/ufw-allow-gradio.sh` — open the Gradio port in UFW (default 7860)
 
 ## Key Files
 | File | Purpose |
 |------|---------|
 | `land_dev_support.ipynb` | Main Q&A notebook |
+| `app.py` | Web portal UI (Gradio) |
 | `faq.md` | Sample FAQ fed to the AI as context |
 | `session_log.json` | Auto-generated session history |
 | `.env` | API keys (never commit) |
